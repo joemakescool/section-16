@@ -22,7 +22,7 @@
         }),
         methods: {
             navigateToHome() {
-                this.$router.push({path: '/'}) // you can pass things to places...!!!
+                this.$router.push({name: 'home'}) // you can pass things to places...!!!
             }
         },
 

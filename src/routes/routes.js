@@ -5,6 +5,7 @@ import Hello from '@/components/Hello'
 import UserStart from '@/components/user/UserStart'
 import UserDetail from "@/components/user/UserDetail";
 import UserEdit from "@/components/user/UserEdit";
+import Header from '@/components/Header'
 
 function dynamicPropsFn (route) {
     const now = new Date();
@@ -14,7 +15,11 @@ function dynamicPropsFn (route) {
 }
 
 export const routes = [
-    { path: '/user', component: User,
+    { path: '/user',
+        components: {
+            default: User,
+            'header-bottom': Header
+        },
         props: {
             name: 'User Prop I did it!',
             hello: 'hello',
@@ -28,14 +33,16 @@ export const routes = [
         children: [
             { path: '', component: UserStart },
             { path: ':id', component: UserDetail },
-            { path: ':id', component: UserEdit}
+            { path: ':id/edit', component: UserEdit, name: 'userEdit'}
         ]
         }, // user/id
-    { path: '', component: Home, props: { name: 'Joe' }},
+    { path: '', Home, props: { name: 'Joe' }, name: 'home', components: { default: Home, 'header-top': Header } },
     { path: '/hello', component: Hello }, // No props, no nothing
     { path: '/hello/:name', component: Hello, props: true }, // Pass route.params to props
     { path: '/static', component: Hello, props: { name: 'static variable passed' }}, // static values
     { path: '/dynamic/:years', component: Hello, props: dynamicPropsFn }, // custom logic for mapping between route and props
-    { path: '/attrs', component: Hello, props: { name: 'attrs' }}
+    { path: '/attrs', component: Hello, props: { name: 'attrs' }},
+    { path: '/redirect-me', redirect: '/user'},
+    { path: '*', redirect: { name: 'home' } }
 
 ];

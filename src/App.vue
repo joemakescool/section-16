@@ -1,23 +1,28 @@
 <template>
   <div id="app">
     <h1>Routing in Vue.js</h1>
-    <app-header></app-header>
     <hr>
-    <router-view foo="123"></router-view>
+    <router-view name="header-top"></router-view>
+    <transition>
+      <router-view></router-view>
+    </transition>
+    <router-view name="header-bottom"></router-view>
 
   </div>
 </template>
 
 <script>
 
-  import Header from "@/components/Header";
+  //import Header from "@/components/Header";
 
 export default {
   name: 'app',
   components: {
-    'app-header': Header
+    //'app-header': Header
   }
 }
+//     <router-view foo="123"></router-view>
+
 </script>
 
 <style>
@@ -29,4 +34,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+
 </style>
