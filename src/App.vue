@@ -1,15 +1,21 @@
 <template>
   <div id="app">
     <h1>Routing in Vue.js</h1>
+    <app-header></app-header>
+    <hr>
+    <router-view foo="123"></router-view>
 
   </div>
 </template>
 
 <script>
 
+  import Header from "@/components/Header";
+
 export default {
   name: 'app',
   components: {
+    'app-header': Header
   }
 }
 </script>
