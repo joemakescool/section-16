@@ -32,7 +32,12 @@ export const routes = [
         },
         children: [
             { path: '', component: UserStart },
-            { path: ':id', component: UserDetail },
+            { path: ':id', component: UserDetail,
+                beforeEnter: (to, from, next) => {
+                    // eslint-disable-next-line no-console
+                    console.log('inside route setup', to, from , next);
+                    next();
+                } },
             { path: ':id/edit', component: UserEdit, name: 'userEdit'}
         ]
         }, // user/id

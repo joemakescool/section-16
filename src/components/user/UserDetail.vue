@@ -23,6 +23,15 @@
             },
         }),
 
+        // beforeRouteEnter(to, from, next) { // this runs before everything is made or initilized.
+        //     if (true) {
+        //         next()
+        //     } else {
+        //         next(false);
+        //     }
+        //
+        // }
+
     }
     //        <button><router-link v-bind:to=" '/user/' + $route.params.id + '/edit' ">Edit me</router-link></button>
 

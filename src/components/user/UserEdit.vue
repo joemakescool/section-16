@@ -7,6 +7,8 @@
         <div style="height: 700px">
 
         </div>
+        <hr>
+        <button class="btn btn-primary">Confirm</button>
         <p id="data">Some data here</p>
     </div>
 </template>
